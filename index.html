@@ -13,8 +13,38 @@
         <h1 class="title">Sketch Pad</h1>
     </header>
     <main class="main">
-        <div class=""controls></div>
-        <div class="pad"></div>
+        <div class=""controls>
+            <div class="colorCard">
+                <div class="colorBox">
+                    <input type="color" id="penColor">
+                </div>
+                <span>Pen Color</span>
+            </div>
+            <div class="colorCard">
+                <div class="colorBox">
+                    <input type="color" id="backgroundColor" value="#ffffff">
+                </div>
+                <span>Background Color</span>
+            </div>
+
+            <button id="colorFill">Color Fill</button>
+            <button id="colorGrab">Color Grab</button>
+            <button id="rainbowBtn">Toggle Rainbow</button>
+            <button id="shaderBtn">Toggle Shading</button>
+            <button id="lightenBtn">Toggle Lighten</button>
+            <button id="eraserBtn">Toggle Eraser</button>
+
+            <div class="slider">
+                <input type="range" value="24" min="1" max="60" id="range-slider"
+                onmousemove="rangeSliderValue(this.value)" onChange="rangeSlider(this.value)">
+            </div>
+            
+            <p class="gridSize">Grid size: <span id="rangeValue">16</span> x <span id="rangeValue">16</span></p>
+
+            <button id="gridBtn">Toggle Grid Lines</button>
+            <button id="clearBtn">Clear</button>
+        </div>
+        <div class="sketchpad"></div>
     </main>
     <footer class="footer">
         <a href="https://github.com/DaffoDyl" target="_blank">Copyright © 2022 Daffodyl</a>
