@@ -2,3 +2,59 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+button {
+    font-size: 14px;
+    padding: 9px 15px;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 44px;
+    padding: 42px 0px;
+
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.colorCard {
+    display: flex;
+    gap: 5px;
+}
+
+#sketchpad {
+    width: 660px;
+    height: 660px;
+    display: grid;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    border: 1px solid #000;
+}
+  
+.gridItem {
+    border: 1px solid #000;
+}
+
+.footer {
+    margin-top: 100px;
+}
