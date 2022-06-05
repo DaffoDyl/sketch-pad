@@ -1,4 +1,7 @@
 const sketchpad = document.getElementById("sketchpad");
+const rowValue = document.getElementById("rowValue");
+const columnValue = document.getElementById("columnValue");
+
 let gridSize = 16;
 
 let removeAllChildNodes = (parent) => {
@@ -7,7 +10,7 @@ let removeAllChildNodes = (parent) => {
     }
 }
 
-let makeGrid = (rows, cols) => {
+let makeGrid = (rows, cols=rows) => {
     removeAllChildNodes(sketchpad);
     sketchpad.style.setProperty('--grid-rows', rows);
     sketchpad.style.setProperty('--grid-cols', cols);
@@ -15,6 +18,12 @@ let makeGrid = (rows, cols) => {
       let cell = document.createElement("div");
       sketchpad.appendChild(cell).className = "gridItem";
     }
+    rowValue.textContent = rows;
+    columnValue.textContent = cols;
 }
 
-makeGrid(16, 16);
+let init = ()=> {
+    makeGrid(16);
+}
+
+init();

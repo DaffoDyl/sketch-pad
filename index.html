@@ -35,11 +35,10 @@
             <button id="eraserBtn">Toggle Eraser</button>
 
             <div class="slider">
-                <input type="range" value="16" min="1" max="64" id="range-slider"
-                onmousemove="" onChange="">
+                <input type="range" value="16" min="1" max="64" id="range-slider" onChange="makeGrid(this.value);">
             </div>
             
-            <p class="gridSize">Grid size: <span id="rangeValue">16</span> x <span id="rangeValue">16</span></p>
+            <p class="gridSize">Grid size: <span id="rowValue">16</span> x <span id="columnValue">16</span></p>
 
             <button id="gridBtn">Toggle Grid Lines</button>
             <button id="clearBtn">Clear</button>
