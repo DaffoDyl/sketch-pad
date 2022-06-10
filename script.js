@@ -7,6 +7,7 @@ const rainbowBtn = document.getElementById("rainbowBtn");
 const shaderBtn = document.getElementById("shaderBtn");
 const lightenBtn = document.getElementById("lightenBtn");
 const eraserBtn = document.getElementById("eraserBtn");
+const gridBtn = document.getElementById("gridBtn");
 
 let mouseDown = false;
 
@@ -58,6 +59,9 @@ let toggleBtn = (button) => {
     if(button.classList.contains("active")) {
         button.classList.remove("active");
     }
+    else if(button.classList.contains("gridBtn")) {
+        button.classList.add("active");
+    }
     else {
         removeToggles();
         button.classList.add("active");
@@ -78,6 +82,7 @@ rainbowBtn.addEventListener("click", () => toggleBtn(rainbowBtn));
 shaderBtn.addEventListener("click", () => toggleBtn(shaderBtn));
 lightenBtn.addEventListener("click", () => toggleBtn(lightenBtn));
 eraserBtn.addEventListener("click", () => toggleBtn(eraserBtn));
+gridBtn.addEventListener("click", () => toggleBtn(gridBtn));
 
 
 init();
