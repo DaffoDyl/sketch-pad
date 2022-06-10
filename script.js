@@ -78,6 +78,7 @@ let makeGrid = (rows, cols=rows) => {
       let cell = document.createElement("div");
       cell.addEventListener('mousemove', () => draw(cell));
       sketchpad.appendChild(cell).className = "gridItem";
+      if(isBtnActive(gridBtn)) cell.classList.add("noBorder");
     }
     setBackgroundColor();
     rowValue.textContent = rows;
@@ -104,6 +105,23 @@ let toggleBtn = (button) => {
     }  
 }
 
+let toggleGrid = () => {
+    toggleBtn(gridBtn);
+    let grid = sketchpad.getElementsByTagName("div");
+    if(isBtnActive(gridBtn)) {
+        for( i=0; i< grid.length; i++ ) {
+            let cell = grid[i];
+            cell.classList.add("noBorder");
+        }
+    }
+    else {
+        for( i=0; i< grid.length; i++ ) {
+            let cell = grid[i];
+            cell.classList.remove("noBorder");
+        }
+    }
+}
+
 let isBtnActive = (button) => {
     return button.classList.contains("active");
 }
@@ -118,6 +136,6 @@ rainbowBtn.addEventListener("click", () => toggleBtn(rainbowBtn));
 shaderBtn.addEventListener("click", () => toggleBtn(shaderBtn));
 lightenBtn.addEventListener("click", () => toggleBtn(lightenBtn));
 eraserBtn.addEventListener("click", () => toggleBtn(eraserBtn));
-gridBtn.addEventListener("click", () => toggleBtn(gridBtn));
+gridBtn.addEventListener("click", () => toggleGrid());
 
 init();
