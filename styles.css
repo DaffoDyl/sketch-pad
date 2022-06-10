@@ -6,6 +6,8 @@
 body {
     font-family: "JetBrains Mono",monospace;
     text-align: center;
+    background-color: #313131;
+    color: #4153df;
 }
 
 a {
@@ -71,13 +73,29 @@ button.active {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 22px;
+    gap: 19px;
     margin-right: 22px;
 }
 
 .colorCard {
     display: flex;
     gap: 5px;
+}
+
+.colorCard span{
+    padding: 1em;
+}
+  
+input[type="color"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 4em;
+    width: 5em;
+    padding: 0;
 }
 
 #sketchpad {
