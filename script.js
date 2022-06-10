@@ -8,6 +8,7 @@ const shaderBtn = document.getElementById("shaderBtn");
 const lightenBtn = document.getElementById("lightenBtn");
 const eraserBtn = document.getElementById("eraserBtn");
 const gridBtn = document.getElementById("gridBtn");
+const clearBtn = document.getElementById("clearBtn");
 
 let mouseDown = false;
 
@@ -137,5 +138,6 @@ shaderBtn.addEventListener("click", () => toggleBtn(shaderBtn));
 lightenBtn.addEventListener("click", () => toggleBtn(lightenBtn));
 eraserBtn.addEventListener("click", () => toggleBtn(eraserBtn));
 gridBtn.addEventListener("click", () => toggleGrid());
+clearBtn.addEventListener("click", () => makeGrid(rowValue.textContent))
 
 init();
