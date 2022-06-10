@@ -49,6 +49,8 @@ button {
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     border: 1px solid #000;
+    cursor: crosshair;
+    user-select: none;
 }
   
 .gridItem {
