@@ -27,10 +27,46 @@ let setBackgroundColor = () => {
     }
 }
 
+let rgbRandom = () => {
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    return `rgb(${red}, ${green}, ${blue})`
+}
+
+let rgbShade = (cell) => {
+    let rgbValues = cell.style.backgroundColor.match(/\d+/g).map(
+        x => parseInt(x)-5
+    );
+    return `rgb(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]})`
+}
+
+let rgbLighten = (cell) => {
+    let rgbValues = cell.style.backgroundColor.match(/\d+/g).map(
+        x => parseInt(x)+5
+    );
+    return `rgb(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]})`;
+}
+
 let draw = (cell) => {
     if(mouseDown) {
-        cell.style.backgroundColor = penColor.value;
-        cell.classList.add("drawn");
+        cell.classList.add("drawn"); 
+        if(isBtnActive(rainbowBtn)) {
+            cell.style.backgroundColor = rgbRandom();
+        }
+        else if(isBtnActive(shaderBtn)) {
+            cell.style.backgroundColor = rgbShade(cell);
+        }
+        else if(isBtnActive(lightenBtn)) {
+            cell.style.backgroundColor = rgbLighten(cell);
+        }
+        else if(isBtnActive(eraserBtn)) {
+            cell.style.backgroundColor = backgroundColor.value;
+            cell.classList.remove("drawn");  
+        }
+        else {
+            cell.style.backgroundColor = penColor.value;
+        }
     }
 }
 
@@ -83,6 +119,5 @@ shaderBtn.addEventListener("click", () => toggleBtn(shaderBtn));
 lightenBtn.addEventListener("click", () => toggleBtn(lightenBtn));
 eraserBtn.addEventListener("click", () => toggleBtn(eraserBtn));
 gridBtn.addEventListener("click", () => toggleBtn(gridBtn));
-
 
 init();
