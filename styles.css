@@ -34,7 +34,9 @@ button {
 #controls {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: center;
+    gap: 22px;
+    margin-right: 22px;
 }
 
 .colorCard {
