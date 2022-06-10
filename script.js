@@ -3,6 +3,10 @@ const rowValue = document.getElementById("rowValue");
 const columnValue = document.getElementById("columnValue");
 const penColor = document.getElementById("penColor");
 const backgroundColor = document.getElementById("backgroundColor");
+const rainbowBtn = document.getElementById("rainbowBtn");
+const shaderBtn = document.getElementById("shaderBtn");
+const lightenBtn = document.getElementById("lightenBtn");
+const eraserBtn = document.getElementById("eraserBtn");
 
 let mouseDown = false;
 
@@ -43,10 +47,37 @@ let makeGrid = (rows, cols=rows) => {
     columnValue.textContent = cols;
 }
 
+let removeToggles = () => {
+    rainbowBtn.classList.remove("active");
+    shaderBtn.classList.remove("active");
+    lightenBtn.classList.remove("active");
+    eraserBtn.classList.remove("active");
+}
+
+let toggleBtn = (button) => {
+    if(button.classList.contains("active")) {
+        button.classList.remove("active");
+    }
+    else {
+        removeToggles();
+        button.classList.add("active");
+    }  
+}
+
+let isBtnActive = (button) => {
+    return button.classList.contains("active");
+}
+
 let init = ()=> {
     makeGrid(16);
     document.body.onmousedown = () => mouseDown = true;
     document.body.onmouseup = () => mouseDown = false;
 }
+
+rainbowBtn.addEventListener("click", () => toggleBtn(rainbowBtn));
+shaderBtn.addEventListener("click", () => toggleBtn(shaderBtn));
+lightenBtn.addEventListener("click", () => toggleBtn(lightenBtn));
+eraserBtn.addEventListener("click", () => toggleBtn(eraserBtn));
+
 
 init();
